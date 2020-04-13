@@ -39,30 +39,6 @@
       "categoryId": "3",
       "createdAt": "2020-04-10",
       "id": "5"
-    },
-    {
-      "title": "asd",
-      "description": "asd",
-      "email": "asd",
-      "categoryId": "3",
-      "createdAt": "2020-04-10",
-      "id": "5kY0SXO"
-    },
-    {
-      "title": "ddd",
-      "description": "ddd",
-      "email": "ddd",
-      "categoryId": "3",
-      "createdAt": "2020-04-13",
-      "id": "G9vWQJO"
-    },
-    {
-      "title": "asd",
-      "description": "asd",
-      "email": "asd",
-      "categoryId": "3",
-      "createdAt": "2020-04-13",
-      "id": "NNQF75d"
     }
   ],
   "categories": [
