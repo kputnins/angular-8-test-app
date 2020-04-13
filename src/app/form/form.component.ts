@@ -12,7 +12,7 @@ import { findCategoryName } from '../utils/utils';
 })
 export class FormComponent implements OnInit {
   categories: Array<Category>;
-  messageForm: FormGroup;
+  issueForm: FormGroup;
   submitted = false;
   success = false;
 
@@ -20,17 +20,15 @@ export class FormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private httpService: HttpService
   ) {
-    this.messageForm = this.formBuilder.group({
+    this.issueForm = this.formBuilder.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', Validators.email],
       categoryId: ['', Validators.required],
     });
   }
 
   ngOnInit(): void {
-    this.httpService.ping();
-
     this.httpService
       .getCategories()
       .subscribe((categories: Array<Category>) => {
@@ -45,13 +43,13 @@ export class FormComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    if (this.messageForm.invalid) {
+    if (this.issueForm.invalid) {
       return;
     }
 
     this.success = true;
 
-    const { title, description, email, categoryId } = this.messageForm.controls;
+    const { title, description, email, categoryId } = this.issueForm.controls;
     const issue: Issue = {
       title: title.value,
       description: description.value,

@@ -4,8 +4,6 @@
   "scripts": {
     "start": "npm-run-all --parallel start-server start-app",
     "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
     "start-app": "ng serve",
     "start-server": "json-server --watch jsonServer/db.json"
   },

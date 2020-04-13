@@ -17,8 +17,6 @@ export class DataComponent implements OnInit {
   constructor(private route: ActivatedRoute, private httpService: HttpService) {}
 
   ngOnInit(): void {
-    this.httpService.ping();
-
     this.httpService
       .getCategories()
       .subscribe((categories: Array<Category>) => {

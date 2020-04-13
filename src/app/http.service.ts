@@ -13,10 +13,6 @@ const CATEGORIES = 'categories';
 export class HttpService {
   constructor(private http: HttpClient) {}
 
-  ping() {
-    return console.log('pong');
-  }
-
   getCategories() {
     return this.http.get(`${API}/${CATEGORIES}`);
   }

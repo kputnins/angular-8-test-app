@@ -1,19 +1,22 @@
 <h1 *ngIf="success; else input_form">Issue raised successfully!</h1>
 
 <ng-template #input_form>
-  <h1>Raise an issue</h1>
-
+  <h1>
+    Raise an issue
+    <span *ngIf="!issueForm.valid" id="invalid">X</span>
+    <span *ngIf="issueForm.valid" id="valid">✓</span>
+  </h1>
   <form
     *ngIf="categories; else loading"
     #input_form
-    [formGroup]="messageForm"
+    [formGroup]="issueForm"
     (ngSubmit)="onSubmit()"
   >
     <label>
       Title:
-      <input type="text" formControlName="title" />
-      <div *ngIf="submitted && messageForm.controls.title.errors" class="error">
-        <div *ngIf="messageForm.controls.title.errors.required">
+      <input type="text" formControlName="title" required />
+      <div *ngIf="submitted && issueForm.controls.title.errors" class="error">
+        <div *ngIf="issueForm.controls.title.errors.required">
           Title is required!
         </div>
       </div>
@@ -21,12 +24,12 @@
 
     <label>
       Description:
-      <textarea formControlName="description"></textarea>
+      <textarea formControlName="description" required></textarea>
       <div
-        *ngIf="submitted && messageForm.controls.description.errors"
+        *ngIf="submitted && issueForm.controls.description.errors"
         class="error"
       >
-        <div *ngIf="messageForm.controls.description.errors.required">
+        <div *ngIf="issueForm.controls.description.errors.required">
           Description is required!
         </div>
       </div>
@@ -34,10 +37,13 @@
 
     <label>
       Email:
-      <input type="text" formControlName="email" />
-      <div *ngIf="submitted && messageForm.controls.email.errors" class="error">
-        <div *ngIf="messageForm.controls.email.errors.required">
+      <input type="text" formControlName="email" required />
+      <div *ngIf="submitted && issueForm.controls.email.errors" class="error">
+        <div *ngIf="issueForm.controls.email.errors.required">
           Email is required!
+        </div>
+        <div *ngIf="issueForm.controls.email.errors.email">
+          Please enter a valid email!
         </div>
       </div>
     </label>
@@ -58,10 +64,10 @@
       </div>
 
       <div
-        *ngIf="submitted && messageForm.controls.categoryId.errors"
+        *ngIf="submitted && issueForm.controls.categoryId.errors"
         class="error"
       >
-        <div *ngIf="messageForm.controls.categoryId.errors.required">
+        <div *ngIf="issueForm.controls.categoryId.errors.required">
           Category is required!
         </div>
       </div>
@@ -77,16 +83,16 @@
 
 <div *ngIf="success" class="results">
   <strong>Title:</strong>
-  <span>{{ messageForm.controls.title.value }}</span>
+  <span>{{ issueForm.controls.title.value }}</span>
 
   <strong>Description:</strong>
-  <span>{{ messageForm.controls.description.value }}</span>
+  <span>{{ issueForm.controls.description.value }}</span>
 
   <strong>Email:</strong>
-  <span>{{ messageForm.controls.email.value }}</span>
+  <span>{{ issueForm.controls.email.value }}</span>
 
   <strong>Category:</strong>
-  <span>{{ getCategoryName(messageForm.controls.categoryId.value) }}</span>
+  <span>{{ getCategoryName(issueForm.controls.categoryId.value) }}</span>
 
   <div class="see-all">
     <a routerLink="/data">See all issues</a>
