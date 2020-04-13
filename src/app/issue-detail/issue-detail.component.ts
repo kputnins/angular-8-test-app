@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HttpService } from '../http.service';
 
@@ -14,7 +15,7 @@ export class IssueDetailComponent implements OnInit {
   issue: Issue;
   categories: Array<Category>;
 
-  constructor(private route: ActivatedRoute, private httpService: HttpService) { }
+  constructor(private route: ActivatedRoute, private httpService: HttpService, private location: Location) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -38,5 +39,9 @@ export class IssueDetailComponent implements OnInit {
 
   getCategoryDescription(id: string) {
     return findCategoryDescription(this.categories, id);
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

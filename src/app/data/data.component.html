@@ -1,6 +1,15 @@
 <div class="heading-wrapper">
   <h1>Current Issues</h1>
-  <!-- <input type="button" value=""> -->
+  <div>
+    <a routerLink="/data">All</a>
+    <a routerLink="/data" [queryParams]="{ filter: 'Could-have' }"
+      >Could-Have</a
+    >
+    <a routerLink="/data" [queryParams]="{ filter: 'Should-have' }"
+      >Should-Have</a
+    >
+    <a routerLink="/data" [queryParams]="{ filter: 'Must-have' }">Must-Have</a>
+  </div>
 </div>
 
 <ul *ngIf="issues && categories; else loading">

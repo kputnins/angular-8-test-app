@@ -12,3 +12,9 @@ export interface Category {
   name: string;
   description: string;
 }
+
+export enum CategoryId {
+  'Could-have' = 1,
+  'Should-have' = 2,
+  'Must-have' = 3,
+}

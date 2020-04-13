@@ -21,8 +21,9 @@ export class HttpService {
     return this.http.get(`${API}/${CATEGORIES}`);
   }
 
-  getIssues() {
-    return this.http.get(`${API}/${ISSUES}`);
+  getIssues(params: string = '') {
+    console.log('TCL: HttpService -> getIssues -> params', params);
+    return this.http.get(`${API}/${ISSUES}/${params}`);
   }
 
   getIssue(id: string) {

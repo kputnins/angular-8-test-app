@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 
-import { Issue, Category } from '../models/issues';
+import { Issue, Category, CategoryId } from '../models/issues';
 import { findCategoryName, findCategoryDescription} from '../utils/utils';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -13,7 +14,7 @@ export class DataComponent implements OnInit {
   issues: Array<Issue>;
   categories: Array<Category>;
 
-  constructor(private httpService: HttpService) {}
+  constructor(private route: ActivatedRoute, private httpService: HttpService) {}
 
   ngOnInit(): void {
     this.httpService.ping();
@@ -24,8 +25,21 @@ export class DataComponent implements OnInit {
         this.categories = categories;
       });
 
-    this.httpService.getIssues().subscribe((issues: Array<Issue>) => {
-      this.issues = issues;
+    this.getIssues();
+  }
+
+  getIssues() {
+    this.route.queryParams.subscribe(params => {
+      const filter = params['filter'];
+
+      let categoryId = '';
+      if (filter) {
+        categoryId = `?categoryId=${CategoryId[filter]}`;
+      }
+
+      this.httpService.getIssues(categoryId).subscribe((issues: Array<Issue>) => {
+        this.issues = issues;
+      });
     });
   }
 
@@ -38,10 +52,8 @@ export class DataComponent implements OnInit {
   }
 
   deleteIssue(id: string) {
-    this.httpService.deleteIssue(id).subscribe();
-
-    this.httpService.getIssues().subscribe((issues: Array<Issue>) => {
-      this.issues = issues;
+    this.httpService.deleteIssue(id).subscribe(() => {
+      this.getIssues();
     });
   }
 }

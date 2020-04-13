@@ -1,4 +1,20 @@
 .heading-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  div {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+
+    a {
+      padding: 10px;
+      background-color: #5c00d4;
+      border: 1px solid black;
+      color: white;
+      margin: 10px;
+    }
+  }
 }
 
 ul {

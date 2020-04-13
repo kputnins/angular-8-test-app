@@ -50,3 +50,17 @@ ul {
     }
   }
 }
+
+.back {
+  padding: 10px;
+  background-color: #5c00d4;
+  border: 1px solid black;
+  color: white;
+  margin: 0px;
+  box-shadow: rgba(0, 0, 0, 0.76) 0px 0px 10px -2px;
+
+  &:hover {
+    background-color: #4a00ab;
+    cursor: pointer;
+  }
+}

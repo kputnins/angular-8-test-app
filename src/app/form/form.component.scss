@@ -7,6 +7,7 @@ label {
     width: 50%;
     margin-bottom: 20px;
     padding: 1em;
+    box-shadow: rgba(0, 0, 0, 0.76) 0px 0px 16px -8px;
   }
 
   .error {
@@ -28,6 +29,7 @@ label {
     input {
       width: 30px;
       margin: 10px;
+      box-shadow: none;
     }
 
     .tooltip {
@@ -55,16 +57,19 @@ label {
   margin-bottom: 15px;
 }
 
-.cta {
+.submit {
   background: #7700ff;
   border: none;
   color: white;
 
   text-transform: uppercase;
-  border-radius: 4px;
   padding: 1em;
-  cursor: pointer;
-  font-family: "Montserrat";
+  box-shadow: rgba(0, 0, 0, 0.76) 0px 0px 10px -2px;
+
+  &:hover {
+    background-color: #4a00ab;
+    cursor: pointer;
+  }
 }
 
 .results {
@@ -76,5 +81,23 @@ label {
   span {
     margin-bottom: 20px;
     display: block;
+  }
+}
+
+.see-all {
+  padding-top: 20px;
+
+  a {
+    padding: 10px;
+    background-color: #5c00d4;
+    border: 1px solid black;
+    color: white;
+    margin-top: 20px;
+    box-shadow: rgba(0, 0, 0, 0.76) 0px 0px 10px -2px;
+
+    &:hover {
+      background-color: #4a00ab;
+      cursor: pointer;
+    }
   }
 }

@@ -67,7 +67,7 @@
       </div>
     </label>
 
-    <input type="submit" value="Submit issue" class="cta" />
+    <input type="submit" value="Submit issue" class="submit" />
   </form>
 </ng-template>
 
@@ -88,5 +88,7 @@
   <strong>Category:</strong>
   <span>{{ getCategoryName(messageForm.controls.categoryId.value) }}</span>
 
-  <a routerLink="/data">See all issues</a>
+  <div class="see-all">
+    <a routerLink="/data">See all issues</a>
+  </div>
 </div>
