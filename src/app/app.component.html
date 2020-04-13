@@ -1,0 +1,27 @@
+<header>
+  <div class="container">
+    <a routerLink="/" class="logo">Single page app</a>
+    <nav>
+      <ul>
+        <li>
+          <a
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="/"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/data">Data</a>
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/form">Form</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

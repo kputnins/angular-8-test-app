@@ -1,0 +1,24 @@
+<div class="heading-wrapper">
+  <h1>Current Issues</h1>
+  <!-- <input type="button" value=""> -->
+</div>
+
+<ul *ngIf="issues && categories; else loading">
+  <li *ngFor="let issue of issues">
+    <div class="close-button" (click)="deleteIssue(issue.id)">X</div>
+    <h3 class="title">
+      <a [routerLink]="['/data', issue.id]">{{ issue.title }}</a>
+    </h3>
+    <p class="email">Raised by: {{ issue.email }}</p>
+    <p class="categoryId">
+      {{ getCategoryName(issue.categoryId) }}
+      <label class="tooltip">{{
+        getCategoryDescription(issue.categoryId)
+      }}</label>
+    </p>
+  </li>
+</ul>
+
+<ng-template #loading>
+  <h2>Loading...</h2>
+</ng-template>

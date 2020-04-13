@@ -1,0 +1,85 @@
+{
+  "issues": [
+    {
+      "title": "Log in with Google/Facebook",
+      "description": "A user is able to log in with his pre-existing Google or Facebook account",
+      "email": "john@gmail.com",
+      "categoryId": "1",
+      "createdAt": "2020-04-03",
+      "id": "1"
+    },
+    {
+      "title": "Create user account",
+      "description": "A user can create a personal account",
+      "email": "mark@gmail.com",
+      "categoryId": "3",
+      "createdAt": "2020-04-07",
+      "id": "2"
+    },
+    {
+      "title": "Delete user account",
+      "description": "A user can delete his personal account",
+      "email": "sara@gmail.com",
+      "categoryId": "3",
+      "createdAt": "2020-04-07",
+      "id": "3"
+    },
+    {
+      "title": "Add OAuth",
+      "description": "When authenticating users OAuth should be used",
+      "email": "sara@gmail.com",
+      "categoryId": "2",
+      "createdAt": "2020-04-09",
+      "id": "4"
+    },
+    {
+      "title": "Configure SSL",
+      "description": "Enable https and redirect all http traffic to https",
+      "email": "john@gmail.com",
+      "categoryId": "3",
+      "createdAt": "2020-04-10",
+      "id": "5"
+    },
+    {
+      "title": "asd",
+      "description": "asd",
+      "email": "asd",
+      "categoryId": "3",
+      "createdAt": "2020-04-10",
+      "id": "5kY0SXO"
+    },
+    {
+      "title": "ddd",
+      "description": "ddd",
+      "email": "ddd",
+      "categoryId": "3",
+      "createdAt": "2020-04-13",
+      "id": "G9vWQJO"
+    },
+    {
+      "title": "asd",
+      "description": "asd",
+      "email": "asd",
+      "categoryId": "3",
+      "createdAt": "2020-04-13",
+      "id": "NNQF75d"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Could-Have",
+      "description": "Requirements labelled as Could have are desirable but not necessary and could improve the user experience or customer satisfaction for a little development cost."
+    },
+    {
+      "id": "2",
+      "name": "Should-Have",
+      "description": "Requirements labelled as Should have are important but not necessary for delivery in the current delivery timebox."
+    },
+    {
+      "id": "3",
+      "name": "Must-Have",
+      "description": "Requirements labelled as Must have are critical to the current delivery timebox in order for it to be a success."
+    }
+  ]
+}

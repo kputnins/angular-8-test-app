@@ -1,0 +1,26 @@
+<div class="heading-wrapper">
+  <h1>Current Issues</h1>
+</div>
+
+<ul *ngIf="issue && categories; else loading">
+  <li>
+    <h3 class="title">
+      {{ issue.title }}
+    </h3>
+    <p class="description">{{ issue.description }}</p>
+    <p class="email">Raised by: {{ issue.email }}</p>
+    <p class="categoryId">
+      {{ getCategoryName(issue.categoryId) }}
+      <label class="tooltip">{{
+        getCategoryDescription(issue.categoryId)
+      }}</label>
+    </p>
+    <p class="createdAt">Raised: {{ issue.createdAt }}</p>
+  </li>
+</ul>
+
+<ng-template #loading>
+  <h2>Loading...</h2>
+</ng-template>
+
+<a routerLink="/data">Back to all issues</a>
